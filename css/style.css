@@ -702,25 +702,6 @@ input.all-table-search::placeholder {
   margin-top: 6px;
 }
 
-.popup-container {
-  display: none;
-  position: absolute;
-  width: 370px;
-  height: 461px;
-  top: 5%;
-  left: 37%;
-  background-color: #fff;
-  box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
-  border-radius: 5px;
-  z-index: 9999;
-}
- .popup-select
- {
-  width: 330px; 
-  height: 40px;
-  font-size: 14px;
-  outline: none;
- }
 /* Bottom Table Start */
 .table.bottom {
   flex: 1;
@@ -914,8 +895,17 @@ input.all-table-search::placeholder {
   height: 100%;
 }
 /* for Close icon */
-
-
+.popup-container {
+  position: relative;
+}
+ .popup-select
+ {
+  width: 330px; 
+  height: 40px;
+  font-size: 14px;
+  outline: none;
+ }
+ 
 /* order-window */
 
 .order-window-form {
@@ -1001,7 +991,7 @@ input#deviation_field
 input#order_execution_field, input#expiration_field {
   background-color: transparent;
   border: 0px solid;
-  height: 20px;
+  height: 36px;
   width: 160px;
   color: var(--watchlist-item-color);
   caret-color: transparent;
@@ -1011,11 +1001,10 @@ input#order_execution_field, input#expiration_field {
 
 #footer-order-window {
   display: block;
-  -ms-flex-order: 1;
+  position: fixed;
   bottom: 0;
   order: 1;
-  width: 100%;
-  z-index: 10;
+  width: 74%;
   height: 3rem;
 }
 
@@ -1031,9 +1020,9 @@ input#order_execution_field, input#expiration_field {
 }
 
 .order_window_modal_container {
-  top: -2rem;
+  
   text-align: center;
-  background-color: var(--watchlist-container-bg);
+   
 }
 .symbol_list_container {
   top: -4rem;
@@ -1053,4 +1042,41 @@ input#order_execution_field, input#expiration_field {
 
 .footer-place {
   display: block;
+}
+
+.tradeorder_list_container {
+  width: 370px;
+  height: 440px;
+  margin: 0 auto;
+}
+.modal {
+  position: fixed;
+  top: 15px !important;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1050;
+  display: none;
+  overflow: hidden;
+  outline: 0;
+}
+
+.modal-body
+{
+  padding: 0px !important;
+}
+
+.modal-content-order-list {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 74%;
+  margin: 0 auto;
+  pointer-events: auto;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid rgba(0,0,0,.2);
+  border-radius: 0.3rem;
+  outline: 0;
+  text-align: center;
 }

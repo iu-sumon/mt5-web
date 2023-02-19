@@ -1,6 +1,5 @@
 $(document).ready(function () {
   $(".menu-item").hover(function () {
-    console.log($(this));
     $(this).children().next().toggle();
   });
 });
@@ -9,19 +8,19 @@ $(document).ready(function () {
 // Lightweight Charts Example: Legend 3 Lines
 // https://tradingview.github.io/lightweight-charts/tutorials/how_to/legends
 
-const chartOptions = {
+var chartOptions = {
     layout: {
       textColor: "black",
       background: { type: "solid", color: "white" },
     },
   };
-  const chart = LightweightCharts.createChart(
+  var chart = LightweightCharts.createChart(
     document.getElementById("container"),
     chartOptions
   );
   
   chart.applyOptions({
-    width: 600,
+    width: 900,
     height: 300,
     layout: {
       backgroundColor: "#000000",

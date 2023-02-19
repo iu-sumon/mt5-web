@@ -25,11 +25,11 @@
   </head>
   <body style="overflow: auto">
     <!-- Begin page content -->
-    <div class="container-fluid" style="position: relative">
+    <div class="container-fluid">
       <div class="row">
         <div class="col-12">
-          <div class="page-header">
-            <div class="menu d-flex justify-content-start header-menu">
+          <div class="page-header row">
+            <div class="menu col-6 d-flex justify-content-start header-menu">
               <div class="menu-item">
                 <div>Account</div>
                 <div class="menu-children">
@@ -57,14 +57,21 @@
                   <div class="menu-item">About</div>
                 </div>
               </div>
-              <div>
-                <button onclick="openOrder()">New Order</button>
+              <!-- Theme toggle -->
+              <div class="theme-switch-wrapper ml-5">
+                <label class="theme-switch" for="checkbox">
+                  <input type="checkbox" id="checkbox" />
+                  <div class="slider round"></div>
+                </label>
               </div>
+            </div>
+            <div class="col-6">
+              <button class="btn-order" onclick="return  openmodal_tradeorder_list(this);">New Order</button>
             </div>
           </div>
           <div class="page-center">
             <div class="row">
-              <div class="col-3 mt-3">
+              <div class="col-4 mt-3">
                 <!-- All Favorites Navbar -->
                 <nav>
                   <div class="nav nav-tabs" id="nav-tab" role="tablist">
@@ -101,7 +108,7 @@
                   >
                     <div
                       class="xtrader-layout all-container left"
-                      style="width: 359px; height: 385px"
+                      style="width: 359px; height: 400px"
                     >
                       <div class="line all-container left"></div>
 
@@ -507,13 +514,18 @@
                 </div>
               </div>
               <div
-                class="col-9 d-flex justify-content-between"
-                style="height: 385px"
+                class="col-8 d-flex justify-content-between mt-3"
+                style="height: 430px; border: 1px solid #dee2e6"
               >
                 <div style="height: 385px">
                   <div
                     id="container"
-                    style="position: absolute; width: 100%; height: 40%"
+                    style="
+                      position: absolute;
+                      width: 90%;
+                      height: 100%;
+                      top: 50px;
+                    "
                   ></div>
                 </div>
               </div>
@@ -578,7 +590,7 @@
                       style="overflow-x: hidden; position: relative"
                     >
                       <div
-                        class="tbody footer-trade-content"
+                        class="tbody footer-trade-content border-left"
                         style="
                           grid-template-columns:
                             [col-start]
@@ -664,435 +676,160 @@
                           </div>
                         </div>
                         <div
-                          data-id="45901663"
                           class="tr wt-orders-list wt-order-item"
-                          data-action="show-modify-form"
                           style="z-index: auto"
                         >
                           <div class="td first-column">EURJPY</div>
-                          <div title="45901663" class="td first-column">
-                            45901663
-                          </div>
-                          <div
-                            title="2023.13.2 17:51:6"
-                            class="td first-column"
-                          >
-                            2023.13.2 17:51:6
-                          </div>
-                          <div title="sell" class="td first-column">
+                          <div class="td first-column">45901663</div>
+                          <div class="td first-column">2023.13.2 17:51:6</div>
+                          <div class="td first-column">
                             <div class="red">sell</div>
                           </div>
-                          <div title="0.02" class="td first-column right">
-                            0.02
-                          </div>
-                          <div title="141.913" class="td first-column right">
-                            141.913
-                          </div>
-                          <div title="0" class="td first-column right">0</div>
-                          <div title="0" class="td first-column right">0</div>
-                          <div title="142.186" class="td first-column right">
-                            142.186
-                          </div>
-                          <div title="-0.06" class="td first-column right">
-                            -0.06
-                          </div>
-                          <div title="" class="td first-column right">
+                          <div class="td first-column right">0.02</div>
+                          <div class="td first-column right">141.913</div>
+                          <div class="td first-column right">0</div>
+                          <div class="td first-column right">0</div>
+                          <div class="td first-column right">142.186</div>
+                          <div class="td first-column right">-0.06</div>
+                          <div class="td first-column right">
                             <div class="red order-profit">-4.13</div>
                           </div>
-                          <div title="sell EURJPY" class="td first-column">
-                            sell EURJPY
-                          </div>
+                          <div class="td first-column">sell EURJPY</div>
                           <div class="td first-column right">
-                            <button
-                              class="close wt-close-order"
-                              data-action="order"
-                              data-order-id="45901663"
-                              type="button"
-                              title="Close #45901663"
-                            >
-                              <div
-                                class="icon wtwhite-l5situ"
-                                style="
-                                  width: calc(var(--indent-half) * 18);
-                                  height: calc(var(--indent-half) * 18);
-                                "
-                              >
-                                <svg
-                                  xmlns="http://www.w3.org/2000/svg"
-                                  height="18px"
-                                  viewBox="0 0 24 24"
-                                  width="18px"
-                                  fill="#000000"
-                                >
-                                  <path d="M0 0h24v24H0z" fill="none"></path>
-                                  <path
-                                    d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
-                                  ></path>
-                                </svg>
-                              </div>
+                            <button class="close wt-close-order" type="button">
+                              <span><i class="fa-solid fa-xmark"></i></span>
                             </button>
                           </div>
                         </div>
                         <div
-                          data-id="45901663"
                           class="tr wt-orders-list wt-order-item"
-                          data-action="show-modify-form"
                           style="z-index: auto"
                         >
-                          <div title="EURJPY" class="td first-column">
-                            EURJPY
-                          </div>
-                          <div title="45901663" class="td first-column">
-                            45901663
-                          </div>
-                          <div
-                            title="2023.13.2 17:51:6"
-                            class="td first-column"
-                          >
-                            2023.13.2 17:51:6
-                          </div>
-                          <div title="sell" class="td first-column">
+                          <div class="td first-column">EURJPY</div>
+                          <div class="td first-column">45901663</div>
+                          <div class="td first-column">2023.13.2 17:51:6</div>
+                          <div class="td first-column">
                             <div class="red">sell</div>
                           </div>
-                          <div title="0.02" class="td first-column right">
-                            0.02
-                          </div>
-                          <div title="141.913" class="td first-column right">
-                            141.913
-                          </div>
-                          <div title="0" class="td first-column right">0</div>
-                          <div title="0" class="td first-column right">0</div>
-                          <div title="142.186" class="td first-column right">
-                            142.186
-                          </div>
-                          <div title="-0.06" class="td first-column right">
-                            -0.06
-                          </div>
-                          <div title="" class="td first-column right">
+                          <div class="td first-column right">0.02</div>
+                          <div class="td first-column right">141.913</div>
+                          <div class="td first-column right">0</div>
+                          <div class="td first-column right">0</div>
+                          <div class="td first-column right">142.186</div>
+                          <div class="td first-column right">-0.06</div>
+                          <div class="td first-column right">
                             <div class="red wt-order-profit">-4.13</div>
                           </div>
-                          <div title="sell EURJPY" class="td first-column">
-                            sell EURJPY
-                          </div>
+                          <div class="td first-column">sell EURJPY</div>
                           <div class="td first-column right">
-                            <button
-                              class="close wt-close-order"
-                              data-action="order"
-                              data-order-id="45901663"
-                              type="button"
-                              title="Close #45901663"
-                            >
-                              <div
-                                class="icon wtwhite-l5situ"
-                                style="
-                                  width: calc(var(--indent-half) * 18);
-                                  height: calc(var(--indent-half) * 18);
-                                "
-                              >
-                                <svg
-                                  xmlns="http://www.w3.org/2000/svg"
-                                  height="18px"
-                                  viewBox="0 0 24 24"
-                                  width="18px"
-                                  fill="#000000"
-                                >
-                                  <path d="M0 0h24v24H0z" fill="none"></path>
-                                  <path
-                                    d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
-                                  ></path>
-                                </svg>
-                              </div>
+                            <button class="close wt-close-order" type="button">
+                              <span><i class="fa-solid fa-xmark"></i></span>
                             </button>
                           </div>
                         </div>
                         <div
-                          data-id="45901663"
                           class="tr wt-orders-list wt-order-item"
-                          data-action="show-modify-form"
                           style="z-index: auto"
                         >
-                          <div title="EURJPY" class="td first-column">
-                            EURJPY
-                          </div>
-                          <div title="45901663" class="td first-column">
-                            45901663
-                          </div>
-                          <div
-                            title="2023.13.2 17:51:6"
-                            class="td first-column"
-                          >
-                            2023.13.2 17:51:6
-                          </div>
-                          <div title="sell" class="td first-column">
+                          <div class="td first-column">EURJPY</div>
+                          <div class="td first-column">45901663</div>
+                          <div class="td first-column">2023.13.2 17:51:6</div>
+                          <div class="td first-column">
                             <div class="red">sell</div>
                           </div>
-                          <div title="0.02" class="td first-column right">
-                            0.02
-                          </div>
-                          <div title="141.913" class="td first-column right">
-                            141.913
-                          </div>
-                          <div title="0" class="td first-column right">0</div>
-                          <div title="0" class="td first-column right">0</div>
-                          <div title="142.186" class="td first-column right">
-                            142.186
-                          </div>
-                          <div title="-0.06" class="td first-column right">
-                            -0.06
-                          </div>
-                          <div title="" class="td first-column right">
+                          <div class="td first-column right">0.02</div>
+                          <div class="td first-column right">141.913</div>
+                          <div class="td first-column right">0</div>
+                          <div class="td first-column right">0</div>
+                          <div class="td first-column right">142.186</div>
+                          <div class="td first-column right">-0.06</div>
+                          <div class="td first-column right">
                             <div class="red wt-order-profit">-4.13</div>
                           </div>
-                          <div title="sell EURJPY" class="td first-column">
-                            sell EURJPY
-                          </div>
+                          <div class="td first-column">sell EURJPY</div>
                           <div class="td first-column right">
-                            <button
-                              class="close wt-close-order"
-                              data-action="order"
-                              data-order-id="45901663"
-                              type="button"
-                              title="Close #45901663"
-                            >
-                              <div
-                                class="icon wtwhite-l5situ"
-                                style="
-                                  width: calc(var(--indent-half) * 18);
-                                  height: calc(var(--indent-half) * 18);
-                                "
-                              >
-                                <svg
-                                  xmlns="http://www.w3.org/2000/svg"
-                                  height="18px"
-                                  viewBox="0 0 24 24"
-                                  width="18px"
-                                  fill="#000000"
-                                >
-                                  <path d="M0 0h24v24H0z" fill="none"></path>
-                                  <path
-                                    d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
-                                  ></path>
-                                </svg>
-                              </div>
+                            <button class="close wt-close-order" type="button">
+                              <span><i class="fa-solid fa-xmark"></i></span>
                             </button>
                           </div>
                         </div>
                         <div
-                          data-id="45901586"
                           class="tr wt-orders-list wt-order-item"
-                          data-action="show-modify-form"
                           style="z-index: auto"
                         >
-                          <div title="EURUSD" class="td first-column">
-                            EURUSD
-                          </div>
-                          <div title="45901586" class="td first-column">
-                            45901586
-                          </div>
-                          <div
-                            title="2023.8.2 21:31:35"
-                            class="td first-column"
-                          >
-                            2023.8.2 21:31:35
-                          </div>
-                          <div title="sell" class="td first-column">
+                          <div class="td first-column">EURUSD</div>
+                          <div class="td first-column">45901586</div>
+                          <div class="td first-column">2023.8.2 21:31:35</div>
+                          <div class="td first-column">
                             <div class="red">sell</div>
                           </div>
-                          <div title="0.02" class="td first-column right">
-                            0.02
-                          </div>
-                          <div title="1.07273" class="td first-column right">
-                            1.07273
-                          </div>
-                          <div title="0" class="td first-column right">0</div>
-                          <div title="0" class="td first-column right">0</div>
-                          <div
-                            title="1.0756000000000001"
-                            class="td first-column right"
-                          >
-                            1.0756000000000001
-                          </div>
-                          <div title="0" class="td first-column right">0</div>
-                          <div title="" class="td first-column right">
+                          <div class="td first-column right">0.02</div>
+                          <div class="td first-column right">1.07273</div>
+                          <div class="td first-column right">0</div>
+                          <div class="td first-column right">0</div>
+                          <div class="td first-column right">1.0756</div>
+                          <div class="td first-column right">0</div>
+                          <div class="td first-column right">
                             <div class="red wt-order-profit">-5.74</div>
                           </div>
-                          <div title="sell EURUSD" class="td first-column">
-                            sell EURUSD
-                          </div>
+                          <div class="td first-column">sell EURUSD</div>
                           <div class="td first-column right">
-                            <button
-                              class="close wt-close-order"
-                              data-action="order"
-                              data-order-id="45901586"
-                              type="button"
-                              title="Close #45901586"
-                            >
-                              <div
-                                class="icon wtwhite-l5situ"
-                                style="
-                                  width: calc(var(--indent-half) * 18);
-                                  height: calc(var(--indent-half) * 18);
-                                "
-                              >
-                                <svg
-                                  xmlns="http://www.w3.org/2000/svg"
-                                  height="18px"
-                                  viewBox="0 0 24 24"
-                                  width="18px"
-                                  fill="#000000"
-                                >
-                                  <path d="M0 0h24v24H0z" fill="none"></path>
-                                  <path
-                                    d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
-                                  ></path>
-                                </svg>
-                              </div>
+                            <button class="close wt-close-order" type="button">
+                              <span><i class="fa-solid fa-xmark"></i></span>
                             </button>
                           </div>
                         </div>
                         <div
-                          data-id="45901587"
                           class="tr wt-orders-list wt-order-item"
-                          data-action="show-modify-form"
                           style="z-index: auto"
                         >
-                          <div title="EURUSD" class="td first-column">
-                            EURUSD
-                          </div>
-                          <div title="45901587" class="td first-column">
-                            45901587
-                          </div>
-                          <div
-                            title="2023.8.2 21:31:36"
-                            class="td first-column"
-                          >
-                            2023.8.2 21:31:36
-                          </div>
-                          <div title="sell" class="td first-column">
+                          <div class="td first-column">EURUSD</div>
+                          <div class="td first-column">45901587</div>
+                          <div class="td first-column">2023.8.2 21:31:36</div>
+                          <div class="td first-column">
                             <div class="red">sell</div>
                           </div>
-                          <div title="0.02" class="td first-column right">
-                            0.02
-                          </div>
-                          <div title="1.07273" class="td first-column right">
-                            1.07273
-                          </div>
-                          <div title="0" class="td first-column right">0</div>
-                          <div title="0" class="td first-column right">0</div>
-                          <div
-                            title="1.0756000000000001"
-                            class="td first-column right"
-                          >
-                            1.0756000000000001
-                          </div>
-                          <div title="0" class="td first-column right">0</div>
-                          <div title="" class="td first-column right">
+                          <div class="td first-column right">0.02</div>
+                          <div class="td first-column right">1.07273</div>
+                          <div class="td first-column right">0</div>
+                          <div class="td first-column right">0</div>
+                          <div class="td first-column right">1.0756</div>
+                          <div class="td first-column right">0</div>
+                          <div class="td first-column right">
                             <div class="red wt-order-profit">-5.74</div>
                           </div>
-                          <div title="sell EURUSD" class="td first-column">
-                            sell EURUSD
-                          </div>
+                          <div class="td first-column">sell EURUSD</div>
                           <div class="td first-column right">
-                            <button
-                              class="close wt-close-order"
-                              data-action="order"
-                              data-order-id="45901587"
-                              type="button"
-                              title="Close #45901587"
-                            >
-                              <div
-                                class="icon wtwhite-l5situ"
-                                style="
-                                  width: calc(var(--indent-half) * 18);
-                                  height: calc(var(--indent-half) * 18);
-                                "
-                              >
-                                <svg
-                                  xmlns="http://www.w3.org/2000/svg"
-                                  height="18px"
-                                  viewBox="0 0 24 24"
-                                  width="18px"
-                                  fill="#000000"
-                                >
-                                  <path d="M0 0h24v24H0z" fill="none"></path>
-                                  <path
-                                    d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
-                                  ></path>
-                                </svg>
-                              </div>
+                            <button class="close wt-close-order" type="button">
+                              <span><i class="fa-solid fa-xmark"></i></span>
                             </button>
                           </div>
                         </div>
                         <div
-                          data-id="45901588"
                           class="tr wt-orders-list wt-order-item"
-                          data-action="show-modify-form"
                           style="z-index: auto"
                         >
-                          <div title="EURUSD" class="td first-column">
-                            EURUSD
-                          </div>
-                          <div title="45901588" class="td first-column">
-                            45901588
-                          </div>
-                          <div
-                            title="2023.8.2 21:31:38"
-                            class="td first-column"
-                          >
-                            2023.8.2 21:31:38
-                          </div>
-                          <div title="sell" class="td first-column">
+                          <div class="td first-column">EURUSD</div>
+                          <div class="td first-column">45901588</div>
+                          <div class="td first-column">2023.8.2 21:31:38</div>
+                          <div class="td first-column">
                             <div class="red">sell</div>
                           </div>
-                          <div title="0.02" class="td first-column right">
-                            0.02
-                          </div>
-                          <div title="1.07273" class="td first-column right">
-                            1.07273
-                          </div>
-                          <div title="0" class="td first-column right">0</div>
-                          <div title="0" class="td first-column right">0</div>
-                          <div
-                            title="1.0756000000000001"
-                            class="td first-column right"
-                          >
+                          <div class="td first-column right">0.02</div>
+                          <div class="td first-column right">1.07273</div>
+                          <div class="td first-column right">0</div>
+                          <div class="td first-column right">0</div>
+                          <div class="td first-column right">
                             1.0756000000000001
                           </div>
-                          <div title="0" class="td first-column right">0</div>
-                          <div title="" class="td first-column right">
+                          <div class="td first-column right">0</div>
+                          <div class="td first-column right">
                             <div class="red wt-order-profit">-5.74</div>
                           </div>
-                          <div title="sell EURUSD" class="td first-column">
-                            sell EURUSD
-                          </div>
+                          <div class="td first-column">sell EURUSD</div>
                           <div class="td first-column right">
-                            <button
-                              class="close wt-close-order"
-                              data-action="order"
-                              data-order-id="45901588"
-                              type="button"
-                              title="Close #45901588"
-                            >
-                              <div
-                                class="icon wtwhite-l5situ"
-                                style="
-                                  width: calc(var(--indent-half) * 18);
-                                  height: calc(var(--indent-half) * 18);
-                                "
-                              >
-                                <svg
-                                  xmlns="http://www.w3.org/2000/svg"
-                                  height="18px"
-                                  viewBox="0 0 24 24"
-                                  width="18px"
-                                  fill="#000000"
-                                >
-                                  <path d="M0 0h24v24H0z" fill="none"></path>
-                                  <path
-                                    d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
-                                  ></path>
-                                </svg>
-                              </div>
+                            <button class="close wt-close-order" type="button">
+                              <span><i class="fa-solid fa-xmark"></i></span>
                             </button>
                           </div>
                         </div>
@@ -1152,236 +889,263 @@
         </div>
       </div>
 
-      
-      <div class="popup-container" id="popup-container" >
-        <form class="order-window-form">
-          <div>
-            <!-- Execution field -->
-            <div
-              class="d-flex border-bottom"
-            >
-              <!-- <input
-                id="order_execution_field"
-                value="Instant Execution"
-                onclick="return  openmodal_order_execution(this);"
-              /> -->
-              <select class="popup-select"  >
-                <option value="">Instant Execution</option>
-                <option value="">Buy Limit</option>
-                <option value="">Sell Limit</option>
-                <option value="">Buy Stop</option>
-                <option value="">Sell Stop</option>
-                <option value="">Buy Stop Limit</option>
-                <option value="">Sell Stop Limit</option>
-              </select>
-               <span onclick="closeOrder()"><i class="fa-solid fa-xmark fa-2x fa-align-center pl-1 pt-1 text-primary"></i></span>
-
-            </div>
-
-            <!-- Decrease-increase field-->
-            <div
-              class="decrease-increase-execution-container mt-3 border-bottom"
-            >
-              <div
-                class="value-button"
-                id="decrease1"
-                onclick="decreaseFirstValue(-0.1)"
-                value="Decrease Value"
-              >
-                -0.1
-              </div>
-              <div
-                class="value-button"
-                id="decrease2"
-                onclick="decreaseFirstValue(-0.01)"
-                value="Decrease Value"
-              >
-                -0.01
-              </div>
-              <div><input style="width: 50px;  margin-top: 3px; outline:none;" type="number" id="first_field" value="1.10" /></div>
-              <div
-                class="value-button"
-                id="increase1"
-                onclick="increaseFirstValue(0.01)"
-                value="Increase Value"
-              >
-                +0.01
-              </div>
-              <div
-                class="value-button"
-                id="increase2"
-                onclick="increaseFirstValue(0.1)"
-                value="Increase Value"
-              >
-                +0.1
-              </div>
-            </div>
-
-            <!--Power field-->
-            <div class="d-flex justify-content-around align-items-center mt-3">
-              <div>
-                <span id="low_value" class="font-weight-bold">1.43981</span>
-              </div>
-              <div>
-                <div>
-                  <span id="high_value" class="font-weight-bold">1.43985</span>
-                </div>
-              </div>
-            </div>
-
-            <!--Price field-->
-            <div
-              id="execution_price_field"
-              class="d-flex justify-content-between align-items-center border-bottom mt-3 pl-3 pr-3"
-            >
-              <div
-                class="font-weight-bold text-center"
-                onclick="decreasePriceValue(-0.00001)"
-                value="Decrease Value"
-              >
-                -
-              </div>
-              <div>
-                <label for="" class="text-secondary">Price</label>
-                <input style="width: 50px;  margin-top: 3px" type="number" id="price_field" value="0" />
-              </div>
-              <div
-                class="font-weight-bold text-center"
-                id="increase2"
-                onclick="increasePriceValue(0.00001)"
-                value="Increase Value"
-              >
-                +
-              </div>
-            </div>
-
-            <!--SL TP field-->
-            <div class="decrease-increase-sltp-container mt-3 pl-3 pr-3">
-              <div
-                class="d-flex justify-content-between align-items-center border-bottom"
-              >
-                <div
-                  class="font-weight-bold"
-                  onclick="decreaseSLValue(-0.00001)"
-                  value="Decrease Value"
-                >
-                  -
-                </div>
-                <div>
-                  <input style="width: 50px;  margin-top: 3px" type="number" id="sl_value_field" placeholder="SL" />
-                </div>
-                <div
-                  class="font-weight-bold"
-                  onclick="increaseSLValue(0.00001)"
-                  value="Increase Value"
-                >
-                  +
-                </div>
-              </div>
-
-              <div
-                class="d-flex justify-content-between align-items-center border-bottom"
-              >
-                <div
-                  class="font-weight-bold"
-                  onclick="decreaseTPValue(-0.00001)"
-                  value="Decrease Value"
-                >
-                  -
-                </div>
-                <div>
-                  <input style="width: 50px;  margin-top: 3px" type="number" id="tp_value_field" placeholder="TP" />
-                </div>
-                <div
-                  class="font-weight-bold"
-                  onclick="increaseTPValue(0.00001)"
-                  value="Increase Value"
-                >
-                  +
-                </div>
-              </div>
-            </div>
-
-            <!--Deviation field-->
-            <div
-              id="execution_deviation_field"
-              class="d-flex justify-content-between align-items-center border-bottom mt-3 pl-3 pr-3"
-            >
-              <div
-                class="font-weight-bold text-center"
-                onclick="decreaseDevValue()"
-                value="Decrease Value"
-              >
-                -
-              </div>
-              <div>
-                <label for="" class="text-secondary">Deviation</label>
-                <input type="number" id="deviation_field" value="1" />
-              </div>
-              <div
-                class="font-weight-bold text-center"
-                id="increase2"
-                onclick="increaseDevValue()"
-                value="Increase Value"
-              >
-                +
-              </div>
-            </div>
-
-            <!--Stop limit price field-->
-            <div
-              id="execution_stop_limit_price_field"
-              class="d-flex justify-content-between align-items-center border-bottom mt-3 pl-3 pr-3"
-            >
-              <div
-                class="font-weight-bold text-center"
-                onclick="decreaseLimitValue(-0.00001)"
-                value="Decrease Value"
-              >
-                -
-              </div>
-              <div>
-                <label for="" class="text-secondary">Stop Limit price</label>
-                <input style="width: 50px;  margin-top: 3px" type="number" id="stop_limit_price_field" value="0" />
-              </div>
-              <div
-                class="font-weight-bold text-center"
-                id="increase2"
-                onclick="increaseLimitValue(0.00001)"
-                value="Increase Value"
-              >
-                +
-              </div>
-            </div>
-
-            <!--Expiration field-->
-            <div
-              id="execution_expiration_field"
-              class="d-flex justify-content-between align-items-center border-bottom mt-3 pl-3 pr-3"
-            >
-              <label class="text-secondary">Expiration</label>
-              <input
-              style="width: 50px;  margin-top: 3px"
-                id="expiration_field"
-                value="GTC"
-                onclick="return  openmodal_expiration_period(this);"
-              />
-            </div>
-          </div>
-        </form>
-        <footer id="footer-order-window">
+      <!-- Order Window -->
+      <div id="tradeorderlistModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+          <!-- Modal content-->
+          <div class="modal-content tradeorder_list_container">
+            <div class="modal-body">
+              <div class="popup-container">
+                <form class="order-window-form">
+                  <div>
+                    <!-- Execution field -->
+                    <div
+                      class="border-bottom"
+                    >
+                      <input
+                      
+                        id="order_execution_field"
+                        value="Instant Execution"
+                        onclick="return  openmodal_order_execution(this);"
+                      />
+                      <!-- <select class="popup-select"  >
+                        <option value="">Instant Execution</option>
+                        <option value="">Buy Limit</option>
+                        <option value="">Sell Limit</option>
+                        <option value="">Buy Stop</option>
+                        <option value="">Sell Stop</option>
+                        <option value="">Buy Stop Limit</option>
+                        <option value="">Sell Stop Limit</option>
+                      </select>
+                       <span onclick="closeOrder()"><i class="fa-solid fa-xmark fa-2x fa-align-center pl-1 pt-1 text-primary"></i></span>
+         -->
+                    </div>
         
-          <div class="d-flex flex-row h-100 footer-buysell">
-            <button type="button" class="btn bg-success btn-sm btn-block text-white border font-weight-bold">SELL</button>
-            <button type="button" class="btn bg-danger btn-sm btn-block text-white border mt-0 font-weight-bold">BUY</button>
+                    <!-- Decrease-increase field-->
+                    <div
+                      class="decrease-increase-execution-container mt-3 border-bottom"
+                    >
+                      <div
+                        class="value-button"
+                        id="decrease1"
+                        onclick="decreaseFirstValue(-0.1)"
+                        value="Decrease Value"
+                      >
+                        -0.1
+                      </div>
+                      <div
+                        class="value-button"
+                        id="decrease2"
+                        onclick="decreaseFirstValue(-0.01)"
+                        value="Decrease Value"
+                      >
+                        -0.01
+                      </div>
+                      <div><input style="width: 50px;  margin-top: 3px; outline:none;" type="number" id="first_field" value="1.10" /></div>
+                      <div
+                        class="value-button"
+                        id="increase1"
+                        onclick="increaseFirstValue(0.01)"
+                        value="Increase Value"
+                      >
+                        +0.01
+                      </div>
+                      <div
+                        class="value-button"
+                        id="increase2"
+                        onclick="increaseFirstValue(0.1)"
+                        value="Increase Value"
+                      >
+                        +0.1
+                      </div>
+                    </div>
+        
+                    <!--Power field-->
+                    <div class="d-flex justify-content-around align-items-center mt-3">
+                      <div>
+                        <span id="low_value" class="font-weight-bold">1.43981</span>
+                      </div>
+                      <div>
+                        <div>
+                          <span id="high_value" class="font-weight-bold">1.43985</span>
+                        </div>
+                      </div>
+                    </div>
+        
+                    <!--Price field-->
+                    <div
+                      id="execution_price_field"
+                      class="d-flex justify-content-between align-items-center border-bottom mt-3 pl-3 pr-3"
+                    >
+                      <div
+                        class="font-weight-bold text-center"
+                        onclick="decreasePriceValue(-0.00001)"
+                        value="Decrease Value"
+                      >
+                        -
+                      </div>
+                      <div>
+                        <label for="" class="text-secondary">Price</label>
+                        <input style="width: 50px;  margin-top: 3px" type="number" id="price_field" value="0" />
+                      </div>
+                      <div
+                        class="font-weight-bold text-center"
+                        id="increase2"
+                        onclick="increasePriceValue(0.00001)"
+                        value="Increase Value"
+                      >
+                        +
+                      </div>
+                    </div>
+        
+                    <!--SL TP field-->
+                    <div class="decrease-increase-sltp-container mt-3 pl-3 pr-3">
+                      <div
+                        class="d-flex justify-content-between align-items-center border-bottom"
+                      >
+                        <div
+                          class="font-weight-bold"
+                          onclick="decreaseSLValue(-0.00001)"
+                          value="Decrease Value"
+                        >
+                          -
+                        </div>
+                        <div>
+                          <input style="width: 50px;  margin-top: 3px" type="number" id="sl_value_field" placeholder="SL" />
+                        </div>
+                        <div
+                          class="font-weight-bold"
+                          onclick="increaseSLValue(0.00001)"
+                          value="Increase Value"
+                        >
+                          +
+                        </div>
+                      </div>
+        
+                      <div
+                        class="d-flex justify-content-between align-items-center border-bottom"
+                      >
+                        <div
+                          class="font-weight-bold"
+                          onclick="decreaseTPValue(-0.00001)"
+                          value="Decrease Value"
+                        >
+                          -
+                        </div>
+                        <div>
+                          <input style="width: 50px;  margin-top: 3px" type="number" id="tp_value_field" placeholder="TP" />
+                        </div>
+                        <div
+                          class="font-weight-bold"
+                          onclick="increaseTPValue(0.00001)"
+                          value="Increase Value"
+                        >
+                          +
+                        </div>
+                      </div>
+                    </div>
+        
+                    <!--Deviation field-->
+                    <div
+                      id="execution_deviation_field"
+                      class="d-flex justify-content-between align-items-center border-bottom mt-3 pl-3 pr-3"
+                    >
+                      <div
+                        class="font-weight-bold text-center"
+                        onclick="decreaseDevValue()"
+                        value="Decrease Value"
+                      >
+                        -
+                      </div>
+                      <div>
+                        <label for="" class="text-secondary">Deviation</label>
+                        <input type="number" id="deviation_field" value="1" />
+                      </div>
+                      <div
+                        class="font-weight-bold text-center"
+                        id="increase2"
+                        onclick="increaseDevValue()"
+                        value="Increase Value"
+                      >
+                        +
+                      </div>
+                    </div>
+        
+                    <!--Stop limit price field-->
+                    <div
+                      id="execution_stop_limit_price_field"
+                      class="d-flex justify-content-between align-items-center border-bottom mt-3 pl-3 pr-3"
+                    >
+                      <div
+                        class="font-weight-bold text-center"
+                        onclick="decreaseLimitValue(-0.00001)"
+                        value="Decrease Value"
+                      >
+                        -
+                      </div>
+                      <div>
+                        <label for="" class="text-secondary">Stop Limit price</label>
+                        <input style="width: 50px;  margin-top: 3px" type="number" id="stop_limit_price_field" value="0" />
+                      </div>
+                      <div
+                        class="font-weight-bold text-center"
+                        id="increase2"
+                        onclick="increaseLimitValue(0.00001)"
+                        value="Increase Value"
+                      >
+                        +
+                      </div>
+                    </div>
+        
+                    <!--Expiration field-->
+                    <div
+                      id="execution_expiration_field"
+                      class="d-flex justify-content-between align-items-center border-bottom pl-3 pr-3"
+                    >
+                      <label class="text-secondary">Expiration</label>
+                      <input
+                      style="width: 50px;  margin-top: 3px"
+                        id="expiration_field"
+                        value="GTC"
+                        onclick="return  openmodal_expiration_period(this);"
+                      />
+                    </div>
+                  </div>
+                </form>
+                <footer id="footer-order-window">
+                
+                  <div class="d-flex flex-row h-100 footer-buysell">
+                    <button type="button" class="btn bg-success btn-sm btn-block text-white border font-weight-bold">SELL</button>
+                    <button type="button" class="btn bg-danger btn-sm btn-block text-white border mt-0 font-weight-bold">BUY</button>
+                  </div>
+              
+                </footer>
+            
+              </div>
+            </div>
           </div>
-      
-        </footer>
-    
+        </div>
+      </div>
+
+      <!-- Order Window Modal -->
+    <div id="orderwindowModal" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content modal-content-order-list ">
+          <div class="modal-body">
+            <p class="order_execution_mode" data-id="1">Instant Execution</p>
+            <p class="order_execution_mode" data-id="2">Buy Limit</p>
+            <p class="order_execution_mode" data-id="3">Sell Limit</p>
+            <p class="order_execution_mode" data-id="4">Buy Stop</p>
+            <p class="order_execution_mode" data-id="5">Sell Stop</p>
+            <p class="order_execution_mode" data-id="6">Buy Stop Limit</p>
+            <p class="order_execution_mode" data-id="7">Sell Stop Limit</p>
+          </div>
+        </div>
       </div>
     </div>
+    </div>
 
- 
     <!-- Core JavaScript -->
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js"
@@ -1403,14 +1167,6 @@
     <!-- JS needed for this page -->
     <script src="js/order.js"></script>
     <script src="js/script.js"></script>
-
-    <script>
-      function openOrder() {
-        $("#popup-container").show();
-      }
-      function closeOrder() {
-        $("#popup-container").hide();
-      }
-    </script>
+    <script src="js/theme-toggle.js"></script>
   </body>
 </html>

@@ -1,188 +1,195 @@
-
 var first_value = Number($("#first_field").val());
 var sl_value = Number($("#low_value").text());
 var tp_value = Number($("#high_value").text());
 var stock_price = Number($("#low_value").text());
 var stock_limit = Number($("#low_value").text());
 
-
-$("#first_field").on("propertychange change click keyup input paste", function(){
-  first_value = Number($("#first_field").val());
-});
-
-$("#sl_value_field").on("propertychange change click keyup input paste", function(){
-  sl_value = Number($("#sl_value_field").val());
-  
-  //For updating markline 
-  option.series[0].markLine={
-    symbol:['none', 'none'],
-    data:[{
-    symbol:"none",
-    label:{
-      normal:{
-          show:true, 
-          position:'end',
-          backgroundColor: 'blue',
-          color: '#fff',
-          padding: [3,4],
-          distance: 0
-      }
-    },
-    lineStyle: {
-      normal: {
-          color: 'blue', 
-          width: 2 ,
-          type: 'solid'
-      },
-      
-  },
-    yAxis: $("#sl_value_field").val()
-  }]};
-myChart.setOption(option,true,false);
-});
-
-$("#tp_value_field").on("propertychange change click keyup input paste", function(){
-  tp_value = Number($("#tp_value_field").val());
-  //For updating markline 
-  option.series[1].markLine={
-    symbol:['none', 'none'],
-    data:[{
-    symbol:"none",
-    label:{
-      normal:{
-          show:true, 
-          position:'end',
-          backgroundColor: 'red',
-          color: '#fff',
-          padding: [3,4],
-          distance: 0
-      }
-    },
-    lineStyle: {
-      normal: {
-          color: 'red', 
-          width: 2 ,
-          type: 'solid'
-      },
-      
-  },
-    yAxis: $("#tp_value_field").val()
-  }]};
-myChart.setOption(option,true,false);
-});
-
-$("#price_field").on("propertychange change click keyup input paste", function(){
-  stock_price = Number($("#price_field").val());
-});
-
-$("#stop_limit_price_field").on("propertychange change click keyup input paste", function(){
-  stock_limit = Number($("#stop_limit_price_field").val());
-});
-
-// function openmodal_order_execution(input) {
-//   $("#orderwindowModal").modal("show");
-//   $('.modal-backdrop').hide();
-//   $(".order_execution_mode")
-//     .unbind()
-//     .click(function (event) {
-//       $(input).val($(this).text());
-
-//       var execution_title = [
-//         "Buy Limit",
-//         "Sell Limit",
-//         "Buy Stop",
-//         "Sell Stop",
-//       ];
-
-//       if ($(this).text() == "Instant Execution") {
-//         $(".footer-place").attr("style", "display: none !important");
-//         $(".footer-buysell").attr(
-//           "style",
-//           "display: flex! important"
-//         );
-        
-//         $("#execution_stop_limit_price_field").attr(
-//           "style",
-//           "display: none !important"
-//         );
-//         $("#execution_expiration_field").attr(
-//           "style",
-//           "display: none !important"
-//         );
-//         $("#execution_price_field").attr("style", "display: none !important");
-//         $("#execution_deviation_field").attr(
-//           "style",
-//           "display: flex! important"
-//         );
-
-//       } else {
-
-//         $(".footer-buysell").attr("style", "display: none !important");
-//         $(".footer-place").attr(
-//           "style",
-//           "display: flex! important"
-//         );
-
-//         if (execution_title.includes($(this).text())) {
-          
-//           $("#execution_deviation_field").attr(
-//             "style",
-//             "display: none !important"
-//           );
-//           $("#execution_expiration_field").attr(
-//             "style",
-//             "display: flex !important"
-//           );
-//           $("#execution_price_field").attr("style", "display: flex !important");
-//           $("#execution_stop_limit_price_field").attr(
-//             "style",
-//             "display: none !important"
-//           );
-//         } else if (
-//           $(this).text() == "Buy Stop Limit" ||
-//           $(this).text() == "Sell Stop Limit"
-//         ) {
-          
-//           $("#execution_price_field").attr("style", "display: flex !important");
-//           $("#execution_stop_limit_price_field").attr(
-//             "style",
-//             "display: flex !important"
-//           );
-//           $("#execution_expiration_field").attr(
-//             "style",
-//             "display: flex !important"
-//           );
-//           $("#execution_deviation_field").attr(
-//             "style",
-//             "display: none !important"
-//           );
-//         }
-//       }
-
-//       $("#orderwindowModal").modal("hide");
-//     });
-// }
-
-function openmodal_expiration_period(input) {
-  $("#expirationModal").modal("show");
+$("#first_field").on(
+  "propertychange change click keyup input paste",
+  function () {
+    first_value = Number($("#first_field").val());
+  }
+);
+function openmodal_order_execution(input) {
+  $("#orderwindowModal").modal("show");
   $('.modal-backdrop').hide();
-  $(".expiration_mode")
+  $(".order_execution_mode")
     .unbind()
     .click(function (event) {
       $(input).val($(this).text());
-      $("#expirationModal").modal("hide");
+
+      var execution_title = [
+        "Buy Limit",
+        "Sell Limit",
+        "Buy Stop",
+        "Sell Stop",
+      ];
+
+      if ($(this).text() == "Instant Execution") {
+        $(".footer-place").attr("style", "display: none !important");
+        $(".footer-buysell").attr(
+          "style",
+          "display: flex! important"
+        );
+        
+        $("#execution_stop_limit_price_field").attr(
+          "style",
+          "display: none !important"
+        );
+        $("#execution_expiration_field").attr(
+          "style",
+          "display: none !important"
+        );
+        $("#execution_price_field").attr("style", "display: none !important");
+        $("#execution_deviation_field").attr(
+          "style",
+          "display: flex! important"
+        );
+
+      } else {
+
+        $(".footer-buysell").attr("style", "display: none !important");
+        $(".footer-place").attr(
+          "style",
+          "display: flex! important"
+        );
+
+        if (execution_title.includes($(this).text())) {
+          
+          $("#execution_deviation_field").attr(
+            "style",
+            "display: none !important"
+          );
+          $("#execution_expiration_field").attr(
+            "style",
+            "display: flex !important"
+          );
+          $("#execution_price_field").attr("style", "display: flex !important");
+          $("#execution_stop_limit_price_field").attr(
+            "style",
+            "display: none !important"
+          );
+        } else if (
+          $(this).text() == "Buy Stop Limit" ||
+          $(this).text() == "Sell Stop Limit"
+        ) {
+          
+          $("#execution_price_field").attr("style", "display: flex !important");
+          $("#execution_stop_limit_price_field").attr(
+            "style",
+            "display: flex !important"
+          );
+          $("#execution_expiration_field").attr(
+            "style",
+            "display: flex !important"
+          );
+          $("#execution_deviation_field").attr(
+            "style",
+            "display: none !important"
+          );
+        }
+      }
+
+      $("#orderwindowModal").modal("hide");
     });
 }
 
-function openmodal_symbol_list(input) {
-  $("#symbollistModal").modal("show");
+
+$("#sl_value_field").on(
+  "propertychange change click keyup input paste",
+  function () {
+    sl_value = Number($("#sl_value_field").val());
+
+    //For updating markline
+    option.series[0].markLine = {
+      symbol: ["none", "none"],
+      data: [
+        {
+          symbol: "none",
+          label: {
+            normal: {
+              show: true,
+              position: "end",
+              backgroundColor: "blue",
+              color: "#fff",
+              padding: [3, 4],
+              distance: 0,
+            },
+          },
+          lineStyle: {
+            normal: {
+              color: "blue",
+              width: 2,
+              type: "solid",
+            },
+          },
+          yAxis: $("#sl_value_field").val(),
+        },
+      ],
+    };
+    myChart.setOption(option, true, false);
+  }
+);
+
+$("#tp_value_field").on(
+  "propertychange change click keyup input paste",
+  function () {
+    tp_value = Number($("#tp_value_field").val());
+    //For updating markline
+    option.series[1].markLine = {
+      symbol: ["none", "none"],
+      data: [
+        {
+          symbol: "none",
+          label: {
+            normal: {
+              show: true,
+              position: "end",
+              backgroundColor: "red",
+              color: "#fff",
+              padding: [3, 4],
+              distance: 0,
+            },
+          },
+          lineStyle: {
+            normal: {
+              color: "red",
+              width: 2,
+              type: "solid",
+            },
+          },
+          yAxis: $("#tp_value_field").val(),
+        },
+      ],
+    };
+    myChart.setOption(option, true, false);
+  }
+);
+
+$("#price_field").on(
+  "propertychange change click keyup input paste",
+  function () {
+    stock_price = Number($("#price_field").val());
+  }
+);
+
+$("#stop_limit_price_field").on(
+  "propertychange change click keyup input paste",
+  function () {
+    stock_limit = Number($("#stop_limit_price_field").val());
+  }
+);
+
+function openmodal_tradeorder_list(input) {
+  $("#tradeorderlistModal").modal("show");
   $('.modal-backdrop').hide();
-  $(".modal_symbol")
+  $(".modal_order")
     .unbind()
     .click(function (event) {
-      $("#symbollistModal").modal("hide");
+      $("#tradeorderlistModal").modal("hide");
     });
 }
+
 
 function increaseFirstValue(increaseby) {
   first_value = isNaN(first_value) ? 0 : first_value;
@@ -252,14 +259,14 @@ function decreasePriceValue(decreaseby) {
 function increaseLimitValue(increaseby) {
   stock_limit = isNaN(stock_limit) ? 0 : stock_limit;
   stock_limit = stock_limit + Number(increaseby);
-  document.getElementById("stop_limit_price_field").value = stock_limit.toFixed(5);
+  document.getElementById("stop_limit_price_field").value =
+    stock_limit.toFixed(5);
 }
 
 function decreaseLimitValue(decreaseby) {
   stock_limit = isNaN(stock_limit) ? 0 : stock_limit;
   stock_limit = stock_limit + Number(decreaseby);
   stock_limit < 1 ? (stock_limit = 0) : "";
-  document.getElementById("stop_limit_price_field").value = stock_limit.toFixed(5);
+  document.getElementById("stop_limit_price_field").value =
+    stock_limit.toFixed(5);
 }
-
- 
